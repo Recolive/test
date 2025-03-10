@@ -13,20 +13,31 @@
             font-weight: 700;
             background-color: #f5f5f5;
             color: #333;
+            height: 100vh; /* Full viewport height */
+            overflow: hidden; /* Prevent body scroll */
         }
         .container {
             display: flex;
-            min-height: 100vh;
+            height: 100vh; /* Full height of viewport */
         }
         .left-section {
             width: 33%;
             background-color: #fff;
             padding: 20px;
             border-right: 1px solid #ddd;
+            overflow-y: auto; /* Enable scrolling */
+            height: 100%; /* Full height */
+            -ms-overflow-style: none; /* Hide scrollbar in IE/Edge */
+            scrollbar-width: none; /* Hide scrollbar in Firefox */
+        }
+        .left-section::-webkit-scrollbar {
+            display: none; /* Hide scrollbar in Chrome, Safari, etc. */
         }
         .right-section {
             width: 67%;
             padding: 40px;
+            overflow-y: auto; /* Enable scrolling */
+            height: 100%; /* Full height */
         }
         .topic {
             cursor: pointer;
@@ -62,7 +73,6 @@
         p {
             line-height: 1.6;
         }
-        /* Code block styling */
         .code-block {
             position: relative;
             background-color: #e8ecef;
@@ -174,11 +184,6 @@
             });
         }
 
-        // Show the first content by default
-        document.getElementById("content1").classList.add("active");
-    </script>
-</body>
-</html>
         // Show the first content by default
         document.getElementById("content1").classList.add("active");
     </script>
