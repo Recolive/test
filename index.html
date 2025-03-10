@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>x1validator.wiki</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+        .left-section {
+            width: 33%;
+            background-color: #fff;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+        }
+        .right-section {
+            width: 67%;
+            padding: 40px;
+        }
+        .topic {
+            cursor: pointer;
+            padding: 10px 0;
+            font-size: 18px;
+            border-bottom: 1px solid #eee;
+        }
+        .topic:hover {
+            color: #666;
+        }
+        .subtopics {
+            display: none;
+            padding-left: 20px;
+        }
+        .subtopic {
+            padding: 5px 0;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .subtopic:hover {
+            color: #666;
+        }
+        .content {
+            display: none;
+        }
+        .content.active {
+            display: block;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        p {
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <div class="topic" onclick="toggleSubtopics('topic1-subtopics')">Topic 1</div>
+            <div id="topic1-subtopics" class="subtopics">
+                <div class="subtopic" onclick="showContent('content1')">Subtopic 1</div>
+                <div class="subtopic" onclick="showContent('content2')">Subtopic 2</div>
+            </div>
+            <div class="topic" onclick="toggleSubtopics('topic2-subtopics')">Topic 2</div>
+            <div id="topic2-subtopics" class="subtopics">
+                <div class="subtopic" onclick="showContent('content3')">Subtopic 3</div>
+            </div>
+            <div class="topic" onclick="showContent('content4')">Topic 3</div>
+        </div>
+        <div class="right-section">
+            <div id="content1" class="content">
+                <h1>Subtopic 1</h1>
+                <p>Welcome to x1validator.wiki. This is the content for Subtopic 1.</p>
+            </div>
+            <div id="content2" class="content">
+                <h1>Subtopic 2</h1>
+                <p>Content for Subtopic 2. Keep it minimal and clean.</p>
+            </div>
+            <div id="content3" class="content">
+                <h1>Subtopic 3</h1>
+                <p>Text for Subtopic 3 goes here.</p>
+            </div>
+            <div id="content4" class="content">
+                <h1>Topic 3</h1>
+                <p>Content for Topic 3, no subtopics needed.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSubtopics(id) {
+            const subtopics = document.getElementById(id);
+            if (subtopics.style.display === "block") {
+                subtopics.style.display = "none";
+            } else {
+                subtopics.style.display = "block";
+            }
+        }
+
+        function showContent(contentId) {
+            const contents = document.getElementsByClassName("content");
+            for (let i = 0; i < contents.length; i++) {
+                contents[i].classList.remove("active");
+            }
+            document.getElementById(contentId).classList.add("active");
+        }
+
+        // Show the first content by default
+        document.getElementById("content1").classList.add("active");
+    </script>
+</body>
+</html>
