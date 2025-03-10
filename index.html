@@ -13,31 +13,31 @@
             font-weight: 700;
             background-color: #f5f5f5;
             color: #333;
-            height: 100vh; /* Full viewport height */
-            overflow: hidden; /* Prevent body scroll */
+            height: 100vh;
+            overflow: hidden;
         }
         .container {
             display: flex;
-            height: 100vh; /* Full height of viewport */
+            height: 100vh;
         }
         .left-section {
             width: 33%;
             background-color: #fff;
             padding: 20px;
             border-right: 1px solid #ddd;
-            overflow-y: auto; /* Enable scrolling */
-            height: 100%; /* Full height */
-            -ms-overflow-style: none; /* Hide scrollbar in IE/Edge */
-            scrollbar-width: none; /* Hide scrollbar in Firefox */
+            overflow-y: auto;
+            height: 100%;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
         .left-section::-webkit-scrollbar {
-            display: none; /* Hide scrollbar in Chrome, Safari, etc. */
+            display: none;
         }
         .right-section {
             width: 67%;
             padding: 40px;
-            overflow-y: auto; /* Enable scrolling */
-            height: 100%; /* Full height */
+            overflow-y: auto;
+            height: 100%;
         }
         .topic {
             cursor: pointer;
@@ -117,6 +117,12 @@
                 <div class="subtopic" onclick="showContent('content3')">Subtopic 3</div>
             </div>
             <div class="topic" onclick="showContent('content4')">Topic 3</div>
+            <!-- Added dummy topics to test scrolling -->
+            <div class="topic">Topic 4</div>
+            <div class="topic">Topic 5</div>
+            <div class="topic">Topic 6</div>
+            <div class="topic">Topic 7</div>
+            <div class="topic">Topic 8</div>
         </div>
         <div class="right-section">
             <div id="content1" class="content">
@@ -166,26 +172,4 @@
 
         function showContent(contentId) {
             const contents = document.getElementsByClassName("content");
-            for (let i = 0; i < contents.length; i++) {
-                contents[i].classList.remove("active");
-            }
-            document.getElementById(contentId).classList.add("active");
-        }
-
-        function copyCode(button) {
-            const code = button.nextElementSibling.textContent;
-            navigator.clipboard.writeText(code).then(() => {
-                button.textContent = "Copied!";
-                button.classList.add("copied");
-                setTimeout(() => {
-                    button.textContent = "Copy";
-                    button.classList.remove("copied");
-                }, 2000);
-            });
-        }
-
-        // Show the first content by default
-        document.getElementById("content1").classList.add("active");
-    </script>
-</body>
-</html>
+            for (let i = 0; i
